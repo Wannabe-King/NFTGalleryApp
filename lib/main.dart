@@ -30,7 +30,8 @@ final GoRouter _router = GoRouter(routes: <GoRoute>[
   ),
   GoRoute(
     path: '/setupPassword/:privateKey',
-    builder: (context, state) => const SetUpPasswordPage(privateKey:state.pathParameters["privateKey"]),
+    builder: (context, state) =>
+        SetUpPasswordPage(mnemonic: state.pathParameters["privateKey"]),
   ),
   GoRoute(
     path: '/generatePhrase',
