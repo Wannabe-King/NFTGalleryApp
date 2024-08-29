@@ -31,11 +31,12 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Padding(
         padding: EdgeInsets.all(16),
-        child: ListView(
+        child: Column(
+          // shrinkWrap: true,
           children: [
             Card(
               child: Padding(
-                padding: EdgeInsets.all(8),
+                padding: const EdgeInsets.all(8),
                 child: Column(
                   children: [
                     const Text('Wallet Address',
@@ -126,8 +127,8 @@ class _HomePageState extends State<HomePage> {
     await dotenv.load(fileName: ".env");
 
     client = SolanaClient(
-      rpcUrl: Uri.parse(dotenv.env['QUICKNODE_RPC_URL'].toString()),
-      websocketUrl: Uri.parse(dotenv.env['QUICKNODE_RPC_WSS'].toString()),
+      rpcUrl: Uri.parse(dotenv.env['HELIUS_RPC_URL'].toString()),
+      websocketUrl: Uri.parse(dotenv.env['HELIUS_RPC_WSS'].toString()),
     );
     _getBalance();
   }

@@ -82,10 +82,13 @@ class _GeneratePhrasePageState extends State<GeneratePhrasePage> {
                   const Text("I have stored the recovery phrase securely"),
                 ],
               ),
+              const SizedBox(
+                height: 20,
+              ),
               ButtonX(
                 click: _copied
                     ? () {
-                        GoRouter.of(context).go("/passwordSetup/$_mnemonic");
+                        GoRouter.of(context).go("/setupPassword/$_mnemonic");
                       }
                     : () {
                         GoRouter.of(context).go("/");

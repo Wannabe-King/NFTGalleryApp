@@ -17,12 +17,14 @@ class ButtonX extends StatelessWidget {
     return GestureDetector(
       onTap: click,
       child: Container(
-        width: 100,
-        height: 100,
-        decoration: BoxDecoration(color: buttonColor ?? Colors.grey[700]),
+        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+        height: 50,
+        decoration: BoxDecoration(
+            color: buttonColor ?? Colors.grey[700],
+            borderRadius: BorderRadius.circular(10)),
         child: Text(
           buttonLable,
-          style: TextStyle(color: lableColor ?? Colors.white),
+          style: TextStyle(fontSize: 20, color: lableColor ?? Colors.white),
         ),
       ),
     );

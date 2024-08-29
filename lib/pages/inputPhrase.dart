@@ -18,48 +18,65 @@ class _InputPhrasePageState extends State<InputPhrasePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          const Text('Please enter your recovery phrase',
-              style: TextStyle(fontSize: 18)),
-          const SizedBox(height: 32),
-          Center(
-            child: Form(
-              key: _formKey,
-              child: SizedBox(
-                  width: 300,
-                  height: 400,
-                  child: GridView.count(
-                    padding: const EdgeInsets.all(3),
-                    crossAxisSpacing: 10,
-                    mainAxisSpacing: 3,
-                    shrinkWrap: true,
-                    crossAxisCount: 3,
-                    children: List.generate(12, (index) {
-                      return SizedBox(
-                        height: 50,
-                        child: TextFormField(
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                            hintText: '${index + 1}',
-                          ),
-                          onSaved: (value) {
-                            _words[index] = value!;
-                          },
-                        ),
-                      );
-                    }),
-                  )),
+      body: Center(
+        child: Container(
+          height: MediaQuery.of(context).size.height,
+          margin: const EdgeInsets.all(16),
+          child: SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const SizedBox(height: 32),
+                  const Text('Please enter your recovery phrase',
+                      style: TextStyle(fontSize: 20)),
+                  const SizedBox(height: 32),
+                  Center(
+                    child: Form(
+                      key: _formKey,
+                      child: Container(
+                          width: 300,
+                          height: 400,
+                          padding: EdgeInsets.all(8),
+                          child: GridView.count(
+                            padding: const EdgeInsets.all(3),
+                            crossAxisSpacing: 10,
+                            mainAxisSpacing: 3,
+                            shrinkWrap: true,
+                            crossAxisCount: 3,
+                            children: List.generate(12, (index) {
+                              return SizedBox(
+                                height: 50,
+                                child: TextFormField(
+                                  decoration: InputDecoration(
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(8),
+                                    ),
+                                    hintText: '${index + 1}',
+                                  ),
+                                  onSaved: (value) {
+                                    _words[index] = value!;
+                                  },
+                                ),
+                              );
+                            }),
+                          )),
+                    ),
+                  ),
+                  Text(validationFailed ? 'Invalid keyphrase' : '',
+                      style: const TextStyle(color: Colors.red)),
+                  // const Spacer(),
+                  ButtonX(
+                      buttonLable: "Continue", click: () => _onSubmit(context)),
+                  const SizedBox(
+                    height: 32,
+                  )
+                ],
+              ),
             ),
           ),
-          Text(validationFailed ? 'Invalid keyphrase' : '',
-              style: const TextStyle(color: Colors.red)),
-          const Spacer(),
-          ButtonX(buttonLable: "Continue", click: () => _onSubmit)
-        ],
+        ),
       ),
     );
   }
@@ -70,7 +87,7 @@ class _InputPhrasePageState extends State<InputPhrasePage> {
       String wordsString = _words.join(' ');
       final t = bip39.validateMnemonic(wordsString);
       if (t) {
-        GoRouter.of(context).go("/passwordSetup/$wordsString");
+        GoRouter.of(context).go("/setupPassword/$wordsString");
       } else {
         setState(() {
           validationFailed = true;

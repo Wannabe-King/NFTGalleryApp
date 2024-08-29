@@ -8,6 +8,7 @@
 .buildlog/
 .history
 .svn/
+.env
 migrate_working_dir/
 
 # IntelliJ related
@@ -41,3 +42,5 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+

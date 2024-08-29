@@ -41,13 +41,15 @@ class _LoginPageState extends State<LoginPage> {
       );
     }
     return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          "Login",
+          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+        ),
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const Text(
-              "Login",
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
             Form(
                 key: _formKey,
                 child: Padding(
@@ -77,6 +79,9 @@ class _LoginPageState extends State<LoginPage> {
                               style: TextStyle(color: Colors.red),
                             )
                           : Container(),
+                      const SizedBox(
+                        height: 32,
+                      ),
                       ButtonX(buttonLable: "Login", click: _onSubmit),
                       const SizedBox(
                         height: 20,
@@ -96,7 +101,7 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Future<bool> _checkForSavedLogin() async {
-    key = await storage.read(key: 'private_key');
+    key = await storage.read(key: 'mnemonic');
     password = await storage.read(key: 'password');
     if (key == null || password == null) {
       return false;

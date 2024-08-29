@@ -71,7 +71,7 @@ class _SetUpPasswordPageState extends State<SetUpPasswordPage> {
       await storage.write(key: 'password', value: passwordController.text);
       await storage.write(key: 'mnemonic', value: widget.mnemonic);
 
-      GoRouter.of(context).go("/");
+      GoRouter.of(context).go('/');
     }
   }
 }
