@@ -18,10 +18,11 @@ Future<List<NFT>> fetchNFTs(String address) async {
         "id": "my-id",
         "method": "searchAssets",
         "params": {
-          // "ownerAddress": "86xCnPeV69n6t3DnyGvkKobf9FdN2H9oiVDdaMpo2MMY",   //mainnet test wallet
+          "ownerAddress":
+              "86xCnPeV69n6t3DnyGvkKobf9FdN2H9oiVDdaMpo2MMY", //mainnet test wallet
           // "ownerAddress":
           //     "2FwBLURK4CpGqpsempCapgzd2fSrhZkT3FxnYyxsLWHm", //devnet test wallet
-          "ownerAddress": address,
+          // "ownerAddress": address,
           "tokenType": "regularNft"
         }
       }));
