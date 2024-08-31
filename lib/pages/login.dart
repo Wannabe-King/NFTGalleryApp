@@ -41,6 +41,14 @@ class _LoginPageState extends State<LoginPage> {
       );
     }
     return Scaffold(
+      bottomNavigationBar: const Padding(
+        padding: EdgeInsets.all(8.0),
+        child: Text(
+          "This App Only Works for Solana Wallets",
+          textAlign: TextAlign.center,
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+      ),
       appBar: AppBar(
         title: const Text(
           "Login",

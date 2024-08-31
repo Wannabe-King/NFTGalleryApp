@@ -2,9 +2,13 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:nft_gallary_app/models/nft.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 Future<List<NFT>> fetchNFTs(String address) async {
-  final url = dotenv.env['HELIUS_RPC_URL'] ?? '';
+  final devnetEnabled = await getRPCtype();
+  final url = devnetEnabled
+      ? dotenv.env['HELIUS_RPC_URL_DEVNET'] ?? ''
+      : dotenv.env['HELIUS_RPC_URL'] ?? '';
   final response = await http.post(Uri.parse(url),
       headers: {
         'Content-Type': 'application/json',
@@ -14,7 +18,10 @@ Future<List<NFT>> fetchNFTs(String address) async {
         "id": "my-id",
         "method": "searchAssets",
         "params": {
-          "ownerAddress": "2FwBLURK4CpGqpsempCapgzd2fSrhZkT3FxnYyxsLWHm",
+          // "ownerAddress": "86xCnPeV69n6t3DnyGvkKobf9FdN2H9oiVDdaMpo2MMY",   //mainnet test wallet
+          // "ownerAddress":
+          //     "2FwBLURK4CpGqpsempCapgzd2fSrhZkT3FxnYyxsLWHm", //devnet test wallet
+          "ownerAddress": address,
           "tokenType": "regularNft"
         }
       }));
@@ -29,6 +36,16 @@ Future<List<NFT>> fetchNFTs(String address) async {
     print("Coundn't fetch NFT");
     throw Exception('Failed to load NFTs: ${response.statusCode}');
   }
+}
+
+void setRPCtype(bool value) async {
+  final SharedPreferences prefs = await SharedPreferences.getInstance();
+  await prefs.setBool('devnet', value);
+}
+
+Future<bool> getRPCtype() async {
+  final SharedPreferences prefs = await SharedPreferences.getInstance();
+  return prefs.getBool('devnet') ?? false;
 }
 
 

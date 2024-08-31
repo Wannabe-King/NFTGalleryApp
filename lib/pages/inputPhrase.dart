@@ -18,6 +18,14 @@ class _InputPhrasePageState extends State<InputPhrasePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: const Padding(
+        padding: EdgeInsets.all(8.0),
+        child: Text(
+          "This App Only Works for Solana Wallets",
+          textAlign: TextAlign.center,
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+      ),
       body: Center(
         child: Container(
           height: MediaQuery.of(context).size.height,
@@ -38,7 +46,7 @@ class _InputPhrasePageState extends State<InputPhrasePage> {
                       child: Container(
                           width: 300,
                           height: 400,
-                          padding: EdgeInsets.all(8),
+                          padding: const EdgeInsets.all(8),
                           child: GridView.count(
                             padding: const EdgeInsets.all(3),
                             crossAxisSpacing: 10,
