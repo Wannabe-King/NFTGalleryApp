@@ -5,7 +5,7 @@ Future<String> imageTo3dRequest(String apiKey,String imageUrl) async {
   const url = "https://api.meshy.ai/v1/image-to-3d/";
   final response = await http.post(Uri.parse(url),
       headers: {
-        'Authorization' : 'Bearer msy_Atp4eXg5ESwKCqomHZgaMVVcStOU8vbgxOmj',
+        'Authorization' : 'Bearer $apiKey',
         // 'Authorization' : 'Bearer $apiKey',
         'Content-Type': 'application/json',
       },
@@ -29,7 +29,7 @@ Future<String> imageto3dResult(String apiKey,String requestId) async {
   final url = "https://api.meshy.ai/v1/image-to-3d/$requestId";
   final response = await http.post(Uri.parse(url),
       headers: {
-        'Authorization' : 'Bearer msy_Atp4eXg5ESwKCqomHZgaMVVcStOU8vbgxOmj',
+        'Authorization' : 'Bearer $apiKey',
         // 'Authorization' : 'Bearer $apiKey',
         'Content-Type': 'application/json',
       },
@@ -45,3 +45,5 @@ Future<String> imageto3dResult(String apiKey,String requestId) async {
     throw Exception('Failed to load 3d model: ${response.statusCode}');
   }
 }
+
+

@@ -30,3 +30,34 @@ Future<List<NFT>> fetchNFTs(String address) async {
     throw Exception('Failed to load NFTs: ${response.statusCode}');
   }
 }
+
+
+
+// Response from api
+
+// {
+//   "jsonrpc": "2.0",
+//   "id": "my-id",
+//   "method": "searchAssets",
+//   "params": {
+//     "ownerAddress": "2FwBLURK4CpGqpsempCapgzd2fSrhZkT3FxnYyxsLWHm",
+//     "tokenType": "nonFungible"
+//   }
+// }
+
+
+// {
+//     "result": {
+//         "items": [{
+//             "interface": "V1_NFT",
+//             "id": "FjBFdJKnqa8XzFYpv5q4rGDymHydTMCqASdpu29u6AJB",
+//             "content": {
+//                 "json_uri": "https://quicknode.myfilebase.com/ipfs/QmQHB7BaqXRgyZYVEEBrc7tHE4gAN6Be6YfrS4w1yUzwRS/",
+//                 "metadata": {
+//                     "description": "Green Q",
+//                     "name": "QNCity",
+//                 },
+//             },
+//         }]
+//     },
+// }

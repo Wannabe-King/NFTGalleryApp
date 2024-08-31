@@ -171,7 +171,7 @@ class _HomePageState extends State<HomePage> {
                                       return ListTile(
                                         onTap: () async {
                                           await imageto3dResult(
-                                              "msy_Atp4eXg5ESwKCqomHZgaMVVcStOU8vbgxOmj",
+                                              dotenv.env['MESHY_API_KEY'] ?? '',
                                               "0191a446-fdd9-712a-aedd-61151c7732af");
                                         },
                                         title: Text(nft.name ?? ""),
