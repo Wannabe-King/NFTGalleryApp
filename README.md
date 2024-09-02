@@ -10,6 +10,21 @@ An app where you can see and download all the NFTs related to a wallet address.
 4) GoRouter
 5) Helius RPC provider
 
+## Screenshots
+
+<div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+    <img src="https://github.com/Wannabe-King/NFTGalleryApp/blob/main/readmeData/Screenshot_1725139005.png" alt="Screenshot 1" style="width: 30%; margin-bottom: 10px;">
+    <img src="https://github.com/Wannabe-King/NFTGalleryApp/blob/main/readmeData/Screenshot_1725139018.png" alt="Screenshot 2" style="width: 30%; margin-bottom: 10px;">
+    <img src="https://github.com/Wannabe-King/NFTGalleryApp/blob/main/readmeData/Screenshot_1725139032.png" alt="Screenshot 6" style="width: 30%; margin-bottom: 10px;">
+    <img src="https://github.com/Wannabe-King/NFTGalleryApp/blob/main/readmeData/Screenshot_1725139059.png" alt="Screenshot 3" style="width: 30%; margin-bottom: 10px;">
+    <img src="https://github.com/Wannabe-King/NFTGalleryApp/blob/main/readmeData/Screenshot_1725139083.png" alt="Screenshot 4" style="width: 30%; margin-bottom: 10px;">
+    <img src="https://github.com/Wannabe-King/NFTGalleryApp/blob/main/readmeData/Screenshot_1725139128.png" alt="Screenshot 5" style="width: 30%; margin-bottom: 10px;">
+    <img src="https://github.com/Wannabe-King/NFTGalleryApp/blob/main/readmeData/Screenshot_1725139136.png" alt="Screenshot 5" style="width: 30%; margin-bottom: 10px;">
+    <img src="https://github.com/Wannabe-King/NFTGalleryApp/blob/main/readmeData/Screenshot_1725139146.png" alt="Screenshot 5" style="width: 30%; margin-bottom: 10px;">
+    <img src="https://github.com/Wannabe-King/NFTGalleryApp/blob/main/readmeData/Screenshot_1725139160.png" alt="Screenshot 5" style="width: 30%; margin-bottom: 10px;">
+</div>
+
+
 ## Getting Started
 
 To Setup this Project, first smile a little 😊 and let's get started.
