@@ -50,6 +50,7 @@ dependencies:
   path: ^1.9.0
   shared_preferences: ^2.3.2
   http: ^1.2.2
+  file_picker: ^8.1.2
 
 dev_dependencies:
   flutter_test:
@@ -75,7 +76,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - .env
-  #   - images/a_dot_burr.jpeg
+    - assets/model.glb
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

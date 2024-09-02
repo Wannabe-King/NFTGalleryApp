@@ -50,12 +50,18 @@ final GoRouter _router = GoRouter(routes: <GoRoute>[
     path: '/generatePhrase',
     builder: (context, state) => const GeneratePhrasePage(),
   ),
-  // GoRoute(
-  //   path: '/3dview',
-  //   builder: (context, state) => Nft3dview(
-  //       modelPath:
-  //           "/storage/emulated/0/Android/data/com.example.nft_gallary_app/files/files/QmVfciq2QFcyb1PhqtbunY3tmRDPSw58Peq14vA2x2BMSo"),
-  // )
+  GoRoute(
+    // path: '/3dview',
+    path: '/3dview/:modelPath',
+    builder: (context, state) => Nft3dview(
+      modelPath: state.pathParameters["modelPath"],
+      // modelPath:
+      //     "/storage/emulated/0/Android/data/com.example.nft_gallary_app/files/files/QmVfciq2QFcyb1PhqtbunY3tmRDPSw58Peq14vA2x2BMSo",
+      // modelPath: "https://models.babylonjs.com/boombox.glb",
+      // modelPath:
+      // "https://pinnieblog.mypinata.cloud/ipfs/QmWmcX9ikvNTJtCmuX9oWiUvTABQZ6tC6UARqa7ozBh2Ry?filename=Pinnie.glb",
+    ),
+  )
 ]);
 
 class MyApp extends StatelessWidget {

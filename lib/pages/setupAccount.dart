@@ -3,7 +3,6 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nft_gallary_app/services/nft_api.dart';
 import 'package:nft_gallary_app/utils/buttonX.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class SetUpAccountPage extends StatefulWidget {
   const SetUpAccountPage({super.key});
