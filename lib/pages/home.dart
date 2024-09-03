@@ -172,7 +172,7 @@ class _HomePageState extends State<HomePage> {
               if (_showNftExpanded)
                 SingleChildScrollView(
                     child: SizedBox(
-                        height: _showNftExpanded ? 300 : 0,
+                        height: _showNftExpanded ? 320 : 0,
                         child: FutureBuilder<List<NFT>>(
                             future: fetchNFTs(_publicKey!),
                             builder: (context, snapshot) {
@@ -201,10 +201,14 @@ class _HomePageState extends State<HomePage> {
                                       if (index < nfts.length) {
                                         final nft = nfts[index];
                                         return TileList(
-                                            name: nft.name ?? "",
-                                            description: nft.description ?? "",
-                                            image: nft.image ??
-                                                "https://placehold.co/600x400/png");
+                                          name: nft.name ?? "",
+                                          description: nft.description ?? "",
+                                          image:
+                                              getImageOrPlaceholder(nft.image),
+                                          ipfs: getIpfsLink(nft.image),
+                                          // }nft.image ??
+                                          //     "https://placehold.co/600x400/png"
+                                        );
                                         // ListTile(
                                         //   onTap: () async {
                                         //     await imageto3dResult(
@@ -239,57 +243,57 @@ class _HomePageState extends State<HomePage> {
                                     });
                               }
                             }))),
-              Card(
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    children: [
-                      const Text('3D View of NFT',
-                          style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.amber)),
-                      const SizedBox(height: 8),
-                      Form(
-                          key: _formKey,
-                          child: Row(
-                            children: [
-                              SizedBox(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.72,
-                                  child: TextFormField(
-                                    decoration: const InputDecoration(
-                                        labelText:
-                                            "3D Model IPFS Link(ending with .glb)"),
-                                    controller: linkController,
-                                    validator: validateLink,
-                                  )),
-                              IconButton(
-                                  onPressed: () {
-                                    if (_formKey.currentState!.validate()) {
-                                      _formKey.currentState!.save();
-                                      print(linkController.text);
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) => Nft3dview(
-                                              modelPath: linkController.text),
-                                        ),
-                                      );
-                                      // GoRouter.of(context)
-                                      //     .go("/3dview/${linkController.text}");
-                                      // GoRouter.of(context).go("/3dview");
-                                      //https://models.babylonjs.com/boombox.glb
-                                      // launchUrl(Uri.parse(linkController.text));
-                                    }
-                                  },
-                                  icon: const Icon(Icons.send))
-                            ],
-                          )),
-                    ],
-                  ),
-                ),
-              ),
+              // Card(
+              //   child: Padding(
+              //     padding: const EdgeInsets.all(8.0),
+              //     child: Column(
+              //       children: [
+              //         const Text('3D View of NFT',
+              //             style: TextStyle(
+              //                 fontSize: 18,
+              //                 fontWeight: FontWeight.bold,
+              //                 color: Colors.amber)),
+              //         const SizedBox(height: 8),
+              //         Form(
+              //             key: _formKey,
+              //             child: Row(
+              //               children: [
+              //                 SizedBox(
+              //                     width:
+              //                         MediaQuery.of(context).size.width * 0.72,
+              //                     child: TextFormField(
+              //                       decoration: const InputDecoration(
+              //                           labelText:
+              //                               "3D Model IPFS Link(ending with .glb)"),
+              //                       controller: linkController,
+              //                       validator: validateLink,
+              //                     )),
+              //                 IconButton(
+              //                     onPressed: () {
+              //                       if (_formKey.currentState!.validate()) {
+              //                         _formKey.currentState!.save();
+              //                         print(linkController.text);
+              //                         Navigator.push(
+              //                           context,
+              //                           MaterialPageRoute(
+              //                             builder: (context) => Nft3dview(
+              //                                 modelPath: linkController.text),
+              //                           ),
+              //                         );
+              //                         // GoRouter.of(context)
+              //                         //     .go("/3dview/${linkController.text}");
+              //                         // GoRouter.of(context).go("/3dview");
+              //                         //https://models.babylonjs.com/boombox.glb
+              //                         // launchUrl(Uri.parse(linkController.text));
+              //                       }
+              //                     },
+              //                     icon: const Icon(Icons.send))
+              //               ],
+              //             )),
+              //       ],
+              //     ),
+              //   ),
+              // ),
               Card(
                 child: Padding(
                   padding: const EdgeInsets.all(8),
@@ -357,6 +361,23 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  String? getIpfsLink(String? value) {
+    if (value!.endsWith(".glb")) {
+      return value;
+    }
+    return null;
+  }
+
+  String getImageOrPlaceholder(String? value) {
+    if (value == null || value.isEmpty) {
+      return "https://placehold.co/400x400/png";
+    } else if (value.endsWith(".glb")) {
+      return "https://placehold.co/400x400/png/?text=3D";
+    } else {
+      return value;
+    }
+  }
+
   String? validateLink(String? value) {
     if (value == null || value.isEmpty) {
       return "Please enter a valid link.";
@@ -380,10 +401,12 @@ class TileList extends StatefulWidget {
       {super.key,
       required this.name,
       required this.description,
-      required this.image});
+      required this.image,
+      this.ipfs});
   final String name;
   final String description;
   final String image;
+  final String? ipfs;
 
   @override
   State<TileList> createState() => _TileListState();
@@ -477,35 +500,47 @@ class _TileListState extends State<TileList> {
           leading: Image.network(
             widget.image,
           ),
-          trailing: IconButton(
-              onPressed: () {
-                fileExists && dowloading == false
-                    ? openfile()
-                    : startDownload();
-              },
-              icon: fileExists
-                  ? const Icon(
-                      Icons.save,
-                      color: Colors.green,
-                    )
-                  : dowloading
-                      ? Stack(
-                          alignment: Alignment.center,
-                          children: [
-                            CircularProgressIndicator(
-                              value: progress,
-                              strokeWidth: 3,
-                              backgroundColor: Colors.grey,
-                              valueColor: const AlwaysStoppedAnimation<Color>(
-                                  Colors.blue),
-                            ),
-                            Text(
-                              (progress * 100).toStringAsFixed(2),
-                              style: const TextStyle(fontSize: 12),
-                            )
-                          ],
+          trailing: widget.ipfs != null
+              ? IconButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Nft3dview(modelPath: widget.ipfs),
+                      ),
+                    );
+                  },
+                  icon: const Icon(Icons.open_in_new_rounded))
+              : IconButton(
+                  onPressed: () {
+                    fileExists && dowloading == false
+                        ? openfile()
+                        : startDownload();
+                  },
+                  icon: fileExists
+                      ? const Icon(
+                          Icons.save,
+                          color: Colors.green,
                         )
-                      : const Icon(Icons.download))),
+                      : dowloading
+                          ? Stack(
+                              alignment: Alignment.center,
+                              children: [
+                                CircularProgressIndicator(
+                                  value: progress,
+                                  strokeWidth: 3,
+                                  backgroundColor: Colors.grey,
+                                  valueColor:
+                                      const AlwaysStoppedAnimation<Color>(
+                                          Colors.blue),
+                                ),
+                                Text(
+                                  (progress * 100).toStringAsFixed(2),
+                                  style: const TextStyle(fontSize: 12),
+                                )
+                              ],
+                            )
+                          : const Icon(Icons.download))),
     );
   }
 }

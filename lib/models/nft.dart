@@ -11,7 +11,9 @@ class NFT {
 
   // Constructor to create an NFT object from a Map
   NFT.fromJson(Map<String, dynamic> json) {
-    image = json['content']['links']['image'] as String;
+    image = json['content']['links']['image'] == 'null'
+        ? json['content']['links']['animation_url']
+        : json['content']['links']['image'] as String;
     name = json['content']['metadata']['name'] as String;
     description = json['content']['metadata']['description'] as String;
   }

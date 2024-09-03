@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
+// These APIs are not being used as we are directly using the 3d model(.glb) ipfs link and creating a 3d view in webview using flutter3dviewer
+
 Future<String> imageTo3dRequest(String apiKey, String imageUrl) async {
   const url = "https://api.meshy.ai/v1/image-to-3d/";
   final response = await http.post(Uri.parse(url),
