@@ -10,17 +10,27 @@ An app where you can see and download all the NFTs related to a wallet address.
 4) GoRouter
 5) Helius RPC provider
 
-
-## 1st Iteration of NFT Gallery App
-### Features
+## Features Added Till Now 
 1) Create a Wallet in the Solana and Sign in to the wallet
 2) Can work both in **Mainnet and Devnet**
 3) Check the Balance of the wallet
-4) **See all the NFTs** associated with the user's wallet
+4) **See all the NFTs** associated with the user's wallet-only **images as well as 3D**
 5) **Download** and Store the NFT in Gallary
 
+# Progession
+## 1st Iteration of NFT Gallery App
+### Contains Features: 
+1) Create a Wallet in the Solana and Sign in to the wallet
+2) Can work both in **Mainnet and Devnet**
+3) Check the Balance of the wallet
+4) **See all the NFTs** associated with the user's wallet-only(**Image Only**)
+5) Download and Store the NFT in Gallary
 
-## Screenshots (1st Iteration of NFT Gallery App)
+### Improvement and Features to be added
+1) **Create a 3d viewer** for the NFT(Meshy API can used to Imageto3d conversion)
+2) **Minting NFT from the app.**
+
+### Screenshots (1st Iteration of NFT Gallery App)
 
 <div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
     <img src="https://github.com/Wannabe-King/NFTGalleryApp/blob/main/readmeData/Screenshot_1725139005.png" alt="Screenshot 1" style="width: 30%; margin-bottom: 10px;">
@@ -37,9 +47,17 @@ An app where you can see and download all the NFTs related to a wallet address.
 ## 2nd Iteration of NFT Gallery App
 ### Features Added : 
 1) User can put an IPFS link for their **3D NFT(.glb)** and can interact with it then using the app itself
+   - First I was thinking about using the Meshy API to convert the Image to a 3D model and show it on the app.
+   - I **successfully created the image for the 3D model** part with a satisfying model but could not load it into the app.
+   - I **could not find a way to load the 3D downloaded model** into the App and pass it to the 3D Viewer page as I could not find a package that could solve this need.
+   - I also tried to load the model directly through the link but **Meshy API is blocking the app from accessing the model** and could not find how to solve this problem.
 2) **Improving the UI** of App Interface with intuitive **CTA(Call to Action)**.
 
-## Screenshots (2nd Iteration of NFT Gallery App) 
+### Improvement and Features to be added
+1) **Remove the dependency from the user side** to put the IPFS link manually. Fetch and show the 3D models directly.
+2) **Minting NFT from the app.**
+
+### Screenshots (2nd Iteration of NFT Gallery App) 
 <div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
     <img src="https://github.com/Wannabe-King/NFTGalleryApp/blob/main/readmeData/Screenshot_1725316922.png" alt="Screenshot 1" style="width: 30%; margin-bottom: 10px;">
     <img src="https://github.com/Wannabe-King/NFTGalleryApp/blob/main/readmeData/Screenshot_1725316734.png" alt="Screenshot 2" style="width: 30%; margin-bottom: 10px;">
@@ -49,7 +67,19 @@ An app where you can see and download all the NFTs related to a wallet address.
     <img src="https://github.com/Wannabe-King/NFTGalleryApp/blob/main/readmeData/Screenshot_1725316910.png" alt="Screenshot 5" style="width: 30%; margin-bottom: 10px;">
 </div>
 
-## Getting Started
+## 3rd Iteration of NFT Gallery App
+### Features Added : 
+1) Show a 3D model associated with the wallet directly **without needing user intervention.**
+   - By modifying the NFT API response parsing the dart model and adjusting the UI a little bit I was able to show the 3D model of the wallet without the user needing to put the URL of the model manually.
+
+### Improvement and Features to be added
+1) **Minting NFT from the app.**
+2) Open for any suggestions
+
+### Screenshots (3rd Iteration of NFT Gallery App) 
+
+
+# Getting Started
 
 To Setup this Project, first smile a little 😊 and let's get started.
 
@@ -66,15 +96,6 @@ To Setup this Project, first smile a little 😊 and let's get started.
    ```
 6) You're all set. Use ```flutter run``` command to launch the app.
 
-## Improvement and Features to be added
-
-1) **Create a 3d viewer** for the NFT(Meshy API can used to Imageto3d conversion)
-   - First I was thinking about using the Meshy API to convert the Image to a 3D model and show it on the app.
-   - I **successfully created the image for the 3D model** part with a satisfying model but could not load it into the app.
-   - I **could not find a way to load the 3D downloaded model** into the App and pass it to the 3D Viewer page as I could not find a package that could solve this need.
-   - I also tried to load the model directly through the link but **Meshy API is blocking the app from accessing the model** and could not find how to solve this problem.
-3) **Minting NFT from the app.**
-4) Open for any suggestions
 
 
-Give a Star⭐ for this project to improve its reach.
+## Give a Star⭐ for this project to improve its reach.
