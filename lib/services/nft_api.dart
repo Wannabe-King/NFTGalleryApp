@@ -21,7 +21,7 @@ Future<List<NFT>> fetchNFTs(String address) async {
           // "ownerAddress":
           //     "86xCnPeV69n6t3DnyGvkKobf9FdN2H9oiVDdaMpo2MMY", //mainnet test wallet
           // "ownerAddress":
-          //     "D8KLFUfnRwGsMt6n56FzkyRYmVUQXiRnJWFV7rZYCYdd", //devnet test wallet with 3d assets
+          //     "D8KLFUfnRwGsMt6n56FzkyRYmVUQXiRnJWFV7rZYCYdd", //devnet test wallet with 3d
           // "2FwBLURK4CpGqpsempCapgzd2fSrhZkT3FxnYyxsLWHm", //devnet test wallet
           "ownerAddress": address,
           "tokenType": "regularNft"
