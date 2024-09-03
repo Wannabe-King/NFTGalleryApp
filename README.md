@@ -1,4 +1,4 @@
-# SOLANA NFT Gallery APP
+# SOLANA NFT Gallery APP[[Download Now]](https://drive.google.com/file/d/10uUThjbqOHFtsZ5K6aMXfFh0eamCwgJ_/view?usp=drive_link)
 
 An app where you can see and download all the NFTs related to a wallet address. 
 
@@ -18,7 +18,7 @@ An app where you can see and download all the NFTs related to a wallet address.
 5) **Download** and Store the NFT in Gallary
 
 # Progession
-## 1st Iteration of NFT Gallery App
+## 1st Iteration of NFT Gallery App [[Apk Here for 1st Iteration]](https://drive.google.com/file/d/1MetC-OaVQ5wx7wOrJLKYKJ5VEXPSjez5/view?usp=drive_link)
 ### Contains Features: 
 1) Create a Wallet in the Solana and Sign in to the wallet
 2) Can work both in **Mainnet and Devnet**
@@ -44,7 +44,7 @@ An app where you can see and download all the NFTs related to a wallet address.
     <img src="https://github.com/Wannabe-King/NFTGalleryApp/blob/main/readmeData/Screenshot_1725139160.png" alt="Screenshot 5" style="width: 30%; margin-bottom: 10px;">
 </div>
 
-## 2nd Iteration of NFT Gallery App
+## 2nd Iteration of NFT Gallery App[[Apk Here for 2nd Iteration]](https://drive.google.com/file/d/1JZYgGxYwLf3LM-rdXZEpx03PlLgqFR2C/view?usp=drive_link)
 ### Features Added : 
 1) User can put an IPFS link for their **3D NFT(.glb)** and can interact with it then using the app itself
    - First I was thinking about using the Meshy API to convert the Image to a 3D model and show it on the app.
@@ -67,7 +67,7 @@ An app where you can see and download all the NFTs related to a wallet address.
     <img src="https://github.com/Wannabe-King/NFTGalleryApp/blob/main/readmeData/Screenshot_1725316910.png" alt="Screenshot 5" style="width: 30%; margin-bottom: 10px;">
 </div>
 
-## 3rd Iteration of NFT Gallery App
+## 3rd Iteration of NFT Gallery App[[Apk Here for 3rd Iteration]](https://drive.google.com/file/d/10uUThjbqOHFtsZ5K6aMXfFh0eamCwgJ_/view?usp=drive_link)
 ### Features Added : 
 1) Show a 3D model associated with the wallet directly **without needing user intervention.**
    - By modifying the NFT API response parsing the dart model and adjusting the UI a little bit I was able to show the 3D model of the wallet without the user needing to put the URL of the model manually.
