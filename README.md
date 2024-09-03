@@ -77,7 +77,10 @@ An app where you can see and download all the NFTs related to a wallet address.
 2) Open for any suggestions
 
 ### Screenshots (3rd Iteration of NFT Gallery App) 
-
+<div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+    <img src="https://github.com/Wannabe-King/NFTGalleryApp/blob/main/readmeData/Screenshot_1725402009.png" alt="Screenshot 1" style="width: 30%; margin-bottom: 10px;">
+    <img src="https://github.com/Wannabe-King/NFTGalleryApp/blob/main/readmeData/Screenshot_1725402020.png" alt="Screenshot 2" style="width: 30%; margin-bottom: 10px;">
+</div>
 
 # Getting Started
 
